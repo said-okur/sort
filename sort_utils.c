@@ -6,7 +6,7 @@
 /*   By: sokur <sokur@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 17:29:07 by melihyil          #+#    #+#             */
-/*   Updated: 2023/09/11 13:56:35 by sokur            ###   ########.fr       */
+/*   Updated: 2023/09/11 19:25:19 by sokur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ void	ft_sort_plan(t_stack **stack_a, t_stack **stack_b)
 	}
 }
 
-void	ft_sort_int_tmp(int *tmp_stack, int size)
+void	ft_pivot_sort(int *tmp_stack, int size)
 {
 	int	i;
 	int	j;

@@ -6,7 +6,7 @@
 /*   By: sokur <sokur@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 17:55:57 by sokur             #+#    #+#             */
-/*   Updated: 2023/09/11 15:28:04 by sokur            ###   ########.fr       */
+/*   Updated: 2023/09/11 19:28:54 by sokur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,10 @@ char		**free_all(char **result);
 //sort
 int			ft_quicksort_a(t_stack **a, t_stack **b, int len, int count);
 int			ft_quicksort_b(t_stack **a, t_stack **b, int len, int count);
-void		ft_sort_int_tmp(int *tmp_stack, int size);
+void		ft_pivot_sort(int *tmp_stack, int size);
 void		ft_quicksort_3a(t_stack **a, t_stack **b, int len);
 int			ft_sort_small_b(t_stack **a, t_stack **b, int len);
 int			ft_push_sw(t_stack **a, t_stack **b, int len, int operation);
-void		ft_sort_int_tmp(int *tmp_stack, int size);
 int			is_sorted(t_stack **stack, char c, int len);
 
 t_stack		*allstack(char **av);
@@ -60,6 +59,5 @@ long		ft_atoi(char *str);
 int			effort_required(t_stack *stack);
 int			ft_stack_size(t_stack *stack);
 char		**ft_only(char *str);
-
 
 #endif

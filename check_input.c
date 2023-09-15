@@ -6,12 +6,11 @@
 /*   By: sokur <sokur@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 12:04:25 by sokur             #+#    #+#             */
-/*   Updated: 2023/09/11 14:57:02 by sokur            ###   ########.fr       */
+/*   Updated: 2023/09/11 19:28:49 by sokur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 
 static int	is_digit(char *str)
 {

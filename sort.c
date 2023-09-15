@@ -6,13 +6,14 @@
 /*   By: sokur <sokur@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 17:29:34 by sokur             #+#    #+#             */
-/*   Updated: 2023/09/11 13:54:58 by sokur            ###   ########.fr       */
+/*   Updated: 2023/09/15 11:34:16 by sokur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <unistd.h>
 #include <stdlib.h>
+#include <stdio.h> //delete
 
 int	ft_sort_small_b(t_stack **a, t_stack **b, int len)
 {
@@ -87,8 +88,9 @@ int	ft_get_middle(int *pivot, t_stack **stack_a, int size)
 		a = a->n;
 		i++;
 	}
-	ft_sort_int_tmp(tmp, size);
+	ft_pivot_sort(tmp, size);
 	*pivot = tmp[size / 2];
+	printf("pivot: %d\n", *pivot);
 	free(tmp);
 	return (1);
 }
@@ -101,6 +103,7 @@ int	ft_quicksort_a(t_stack **a, t_stack **b, int len, int count)
 	if (is_sorted(a, 'a', len) == 1)
 		return (1);
 	items = len;
+	printf("len: %d\n", len);
 	if (len <= 3)
 	{
 		ft_quicksort_3a(a, b, len);
@@ -117,8 +120,9 @@ int	ft_quicksort_a(t_stack **a, t_stack **b, int len, int count)
 	}
 	while (items / 2 + items % 2 != ft_stack_size(*a) && count--)
 		do_rra(a);
+	printf("rest: %d\n----------\n", len);
 	return (ft_quicksort_a(a, b, items / 2 + items % 2, 0)
-		&& ft_quicksort_b(a, b, items / 2, 0));
+		&& (ft_quicksort_b(a, b, items / 2, 0)));
 	return (1);
 }
 

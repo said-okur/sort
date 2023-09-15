@@ -6,7 +6,7 @@
 #    By: sokur <sokur@student.42kocaeli.com.tr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/11 14:13:09 by sokur             #+#    #+#              #
-#    Updated: 2023/09/11 14:52:30 by sokur            ###   ########.fr        #
+#    Updated: 2023/09/11 19:24:26 by sokur            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ SRC =	check_input.c \
 		main.c\
 		rerotate.c \
 		stack_utils.c \
-		onearg.c \
+		quotes.c \
 		rotate.c \
 		swap.c \
 

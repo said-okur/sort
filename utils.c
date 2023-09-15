@@ -6,7 +6,7 @@
 /*   By: sokur <sokur@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 18:07:15 by sokur             #+#    #+#             */
-/*   Updated: 2023/09/11 13:57:59 by sokur            ###   ########.fr       */
+/*   Updated: 2023/09/11 19:28:18 by sokur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,15 @@ long	ft_atoi(char *str)
 		i++;
 	}
 	return (result * op);
+}
+
+int	effort_required(t_stack *stack)
+{
+	while (stack -> n)
+	{
+		if ((stack -> d) > (stack -> n -> d))
+			return (1);
+		stack = stack -> n;
+	}
+	return (0);
 }
