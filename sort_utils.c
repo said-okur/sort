@@ -6,7 +6,7 @@
 /*   By: sokur <sokur@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 17:29:07 by melihyil          #+#    #+#             */
-/*   Updated: 2023/09/11 19:25:19 by sokur            ###   ########.fr       */
+/*   Updated: 2023/09/16 18:29:57 by sokur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,11 +59,11 @@ void	ft_mid_stack(t_stack **stack)
 
 	tmp = highvalue(stack);
 	if ((*stack)-> d == tmp)
-		do_ra(stack);
+		do_ra(stack, 1);
 	else if ((*stack)-> n-> d == tmp)
-		do_rra(stack);
+		do_rra(stack, 1);
 	if ((*stack)-> d > (*stack)->n-> d)
-		do_sa(stack);
+		do_sa(stack, 1);
 }
 
 void	ft_sort_plan(t_stack **stack_a, t_stack **stack_b)
@@ -71,7 +71,7 @@ void	ft_sort_plan(t_stack **stack_a, t_stack **stack_b)
 	int	len;
 
 	if ((ft_stack_size((*stack_a))) == 2)
-		do_ra(stack_a);
+		do_ra(stack_a, 1);
 	else if ((ft_stack_size((*stack_a))) == 3)
 		ft_mid_stack(stack_a);
 	else

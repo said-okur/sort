@@ -1,37 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   quotes.c                                           :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sokur <sokur@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/30 14:36:27 by sokur             #+#    #+#             */
-/*   Updated: 2023/09/16 14:14:37 by sokur            ###   ########.fr       */
+/*   Created: 2023/07/08 13:43:41 by sokur             #+#    #+#             */
+/*   Updated: 2023/07/08 18:08:01 by sokur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-char	**free_all(char **result)
+void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	int	i;
+	t_list	*clear;
 
-	i = 0;
-	while (result[i])
+	clear = *lst;
+	while (lst && *lst)
 	{
-		free(result[i]);
-		i++;
+		clear = (*lst)->next;
+		ft_lstdelone(*lst, del);
+		*lst = clear;
 	}
-	free(result);
-	return (NULL);
-}
-
-char	**ft_only(char *str)
-{
-	char	**ptr;
-
-	ptr = ft_split(str, ' ');
-	if (!ptr)
-		return (NULL);
-	return (ptr);
 }

@@ -1,22 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sokur <sokur@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/21 18:07:15 by sokur             #+#    #+#             */
-/*   Updated: 2023/09/16 14:14:10 by sokur            ###   ########.fr       */
+/*   Created: 2023/07/08 18:09:28 by sokur             #+#    #+#             */
+/*   Updated: 2023/07/11 11:47:29 by sokur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-t_stack	*last_stack(t_stack *stack)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	if (stack == NULL)
+	t_list	*newlst;
+	t_list	*node;
+
+	if (!lst)
 		return (NULL);
-	while (stack->n != NULL)
-		stack = stack->n;
-	return (stack);
+	newlst = NULL;
+	node = NULL;
+	while (lst)
+	{
+		if (!f)
+			node = ft_lstnew(lst->content);
+		else
+			node = ft_lstnew(f(lst->content));
+		if (!node)
+		{
+			ft_lstclear(&newlst, del);
+			return (NULL);
+		}
+		ft_lstadd_back(&newlst, node);
+		lst = lst->next;
+	}
+	return (newlst);
 }

@@ -1,37 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   quotes.c                                           :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sokur <sokur@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/30 14:36:27 by sokur             #+#    #+#             */
-/*   Updated: 2023/09/16 14:14:37 by sokur            ###   ########.fr       */
+/*   Created: 2023/07/08 13:46:25 by sokur             #+#    #+#             */
+/*   Updated: 2023/07/10 20:04:23 by sokur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-char	**free_all(char **result)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	int	i;
+	const char	*h;
+	const char	*n;
+	size_t		counter;
 
-	i = 0;
-	while (result[i])
+	if (!needle[0])
+		return ((char *)haystack);
+	while (*haystack && len > 0)
 	{
-		free(result[i]);
-		i++;
+		h = haystack;
+		n = needle;
+		counter = 0;
+		while (n[counter] == h[counter] && n[counter] && len > counter)
+			counter++;
+		if (n[counter] == '\0')
+			return ((char *) haystack);
+		len--;
+		haystack++;
 	}
-	free(result);
 	return (NULL);
-}
-
-char	**ft_only(char *str)
-{
-	char	**ptr;
-
-	ptr = ft_split(str, ' ');
-	if (!ptr)
-		return (NULL);
-	return (ptr);
 }

@@ -1,37 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   quotes.c                                           :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sokur <sokur@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/30 14:36:27 by sokur             #+#    #+#             */
-/*   Updated: 2023/09/16 14:14:37 by sokur            ###   ########.fr       */
+/*   Created: 2023/07/03 18:10:56 by sokur             #+#    #+#             */
+/*   Updated: 2023/07/09 15:30:35 by sokur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-char	**free_all(char **result)
+void	*ft_memset(void *b, int c, size_t len)
 {
-	int	i;
+	size_t			i;
+	unsigned char	*dest;
 
+	dest = b;
 	i = 0;
-	while (result[i])
+	while (i < len)
 	{
-		free(result[i]);
+		dest[i] = c;
 		i++;
 	}
-	free(result);
-	return (NULL);
-}
-
-char	**ft_only(char *str)
-{
-	char	**ptr;
-
-	ptr = ft_split(str, ' ');
-	if (!ptr)
-		return (NULL);
-	return (ptr);
+	return (b);
 }

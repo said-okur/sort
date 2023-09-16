@@ -1,37 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   quotes.c                                           :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sokur <sokur@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/30 14:36:27 by sokur             #+#    #+#             */
-/*   Updated: 2023/09/16 14:14:37 by sokur            ###   ########.fr       */
+/*   Created: 2023/07/08 13:44:20 by sokur             #+#    #+#             */
+/*   Updated: 2023/07/11 12:35:05 by sokur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-char	**free_all(char **result)
+t_list	*ft_lstnew(void *content)
 {
-	int	i;
+	t_list	*elem;
 
-	i = 0;
-	while (result[i])
-	{
-		free(result[i]);
-		i++;
-	}
-	free(result);
-	return (NULL);
-}
-
-char	**ft_only(char *str)
-{
-	char	**ptr;
-
-	ptr = ft_split(str, ' ');
-	if (!ptr)
+	elem = (t_list *)malloc(sizeof(t_list));
+	if (elem == NULL)
 		return (NULL);
-	return (ptr);
+	elem->content = content;
+	elem->next = NULL;
+	return (elem);
 }

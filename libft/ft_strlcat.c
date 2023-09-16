@@ -1,37 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   quotes.c                                           :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sokur <sokur@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/30 14:36:27 by sokur             #+#    #+#             */
-/*   Updated: 2023/09/16 14:14:37 by sokur            ###   ########.fr       */
+/*   Created: 2023/07/08 13:45:54 by sokur             #+#    #+#             */
+/*   Updated: 2023/07/11 12:42:30 by sokur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-char	**free_all(char **result)
+size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
-	int	i;
+	size_t	len;
+	size_t	counter;
 
-	i = 0;
-	while (result[i])
+	counter = 0;
+	len = ft_strlen(dest);
+	if (size - 1 > len && size > 0)
 	{
-		free(result[i]);
-		i++;
+		while (src[counter] != '\0' && size - 1 > len + counter)
+		{
+			dest[counter + len] = src[counter];
+			counter++;
+		}
+		dest[len + counter] = 0;
 	}
-	free(result);
-	return (NULL);
-}
-
-char	**ft_only(char *str)
-{
-	char	**ptr;
-
-	ptr = ft_split(str, ' ');
-	if (!ptr)
-		return (NULL);
-	return (ptr);
+	if (len >= size)
+		len = size;
+	return (len + ft_strlen(src));
 }

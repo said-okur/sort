@@ -1,37 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   quotes.c                                           :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sokur <sokur@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/30 14:36:27 by sokur             #+#    #+#             */
-/*   Updated: 2023/09/16 14:14:37 by sokur            ###   ########.fr       */
+/*   Created: 2023/07/08 13:45:35 by sokur             #+#    #+#             */
+/*   Updated: 2023/07/08 13:45:38 by sokur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-char	**free_all(char **result)
+char	*ft_strdup(const char *src)
 {
-	int	i;
+	int		n;
+	char	*cpy;
 
-	i = 0;
-	while (result[i])
-	{
-		free(result[i]);
-		i++;
-	}
-	free(result);
-	return (NULL);
-}
-
-char	**ft_only(char *str)
-{
-	char	**ptr;
-
-	ptr = ft_split(str, ' ');
-	if (!ptr)
+	cpy = (char *)malloc(sizeof(*src) * ft_strlen(src) + 1);
+	if (cpy == NULL)
 		return (NULL);
-	return (ptr);
+	n = 0;
+	while (src[n] != '\0')
+	{
+		cpy[n] = src[n];
+		n++;
+	}
+	cpy[n] = '\0';
+	return (cpy);
 }

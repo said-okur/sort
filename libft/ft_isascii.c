@@ -1,40 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sokur <sokur@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/23 12:06:34 by sokur             #+#    #+#             */
-/*   Updated: 2023/09/16 18:10:42 by sokur            ###   ########.fr       */
+/*   Created: 2023/07/03 15:49:25 by sokur             #+#    #+#             */
+/*   Updated: 2023/07/08 13:43:09 by sokur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+int	ft_isascii(int c)
 {
-	t_stack	*stack_a;
-	t_stack	*stack_b;
-
-	stack_a = NULL;
-	stack_b = NULL;
-	if (argc < 2)
-		return (0);
-	if (argc == 2)
-	{
-		argv = ft_only(argv[1]);
-		if (!argv)
-			return (1);
-		ft_do_the_job(&stack_a, &stack_b, argv);
-		free_all(argv);
-	}
-	else
-	{
-		argv = &argv[1];
-		ft_do_the_job(&stack_a, &stack_b, argv);
-	}
-	free_stack(&stack_a);
-	free_stack(&stack_b);
+	if (c >= 0 && c <= 127)
+		return (1);
 	return (0);
 }

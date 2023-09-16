@@ -6,7 +6,7 @@
 /*   By: sokur <sokur@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 17:55:57 by sokur             #+#    #+#             */
-/*   Updated: 2023/09/11 19:28:54 by sokur            ###   ########.fr       */
+/*   Updated: 2023/09/16 18:31:56 by sokur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+# include "libft/libft.h"
 
 typedef struct t_stack
 {
@@ -23,17 +24,16 @@ typedef struct t_stack
 }	t_stack;
 
 //rules
-void		do_sa(t_stack **stack_a);
-void		do_sb(t_stack **stack_b);
-void		do_ss(t_stack **stack_a, t_stack **stack_b);
-void		do_pa(t_stack **stack_a, t_stack **stack_b);
-void		do_pb(t_stack **stack_b, t_stack **stack_a);
-void		do_ra(t_stack **stack_a);
-void		do_rb(t_stack **stack_b);
-void		do_rr(t_stack **stack_a, t_stack **stack_b);
-void		do_rra(t_stack **stack_a);
-void		do_rrb(t_stack **stack_b);
-void		do_rrr(t_stack **stack_a, t_stack **stack_b);
+void		do_sa(t_stack **stack_a, int flag);
+void		do_sb(t_stack **stack_b, int flag);
+void		do_pa(t_stack **stack_a, t_stack **stack_b, int flag);
+void		do_pb(t_stack **stack_b, t_stack **stack_a, int flag);
+void		do_ra(t_stack **stack_a, int flag);
+void		do_rb(t_stack **stack_b, int flag);
+void		do_rra(t_stack **stack_a, int flag);
+void		do_rrb(t_stack **stack_b, int flag);
+//stack
+
 
 void		ft_mid_stack(t_stack **stack);
 void		ft_sort_plan(t_stack **stack_a, t_stack **stack_b);
@@ -50,14 +50,15 @@ int			ft_push_sw(t_stack **a, t_stack **b, int len, int operation);
 int			is_sorted(t_stack **stack, char c, int len);
 
 t_stack		*allstack(char **av);
-t_stack		*last_stack(t_stack *stack);
+t_stack		*last_stack(t_stack *a);
+
 void		free_stack(t_stack **stack);
 
 void		error_exit(t_stack **stack_a, t_stack **stack_b);
 int			input_check(char **argv);
-long		ft_atoi(char *str);
+
 int			effort_required(t_stack *stack);
 int			ft_stack_size(t_stack *stack);
 char		**ft_only(char *str);
-
+int			ft_repeatnum(char **argv);
 #endif

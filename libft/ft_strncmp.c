@@ -1,40 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sokur <sokur@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/23 12:06:34 by sokur             #+#    #+#             */
-/*   Updated: 2023/09/16 18:10:42 by sokur            ###   ########.fr       */
+/*   Created: 2023/07/08 13:46:19 by sokur             #+#    #+#             */
+/*   Updated: 2023/09/16 17:20:53 by sokur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+int	ft_strncmp(const char *s1, const char *s2, size_t size)
 {
-	t_stack	*stack_a;
-	t_stack	*stack_b;
+	size_t	i;
 
-	stack_a = NULL;
-	stack_b = NULL;
-	if (argc < 2)
-		return (0);
-	if (argc == 2)
+	i = 0;
+	while (i < size && (s1[i] != '\0' || s2[i] != '\0'))
 	{
-		argv = ft_only(argv[1]);
-		if (!argv)
-			return (1);
-		ft_do_the_job(&stack_a, &stack_b, argv);
-		free_all(argv);
+		if (s1[i] != s2[i])
+			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+		i++;
 	}
-	else
-	{
-		argv = &argv[1];
-		ft_do_the_job(&stack_a, &stack_b, argv);
-	}
-	free_stack(&stack_a);
-	free_stack(&stack_b);
 	return (0);
 }

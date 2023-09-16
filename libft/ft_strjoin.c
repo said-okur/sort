@@ -1,40 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sokur <sokur@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/23 12:06:34 by sokur             #+#    #+#             */
-/*   Updated: 2023/09/16 18:10:42 by sokur            ###   ########.fr       */
+/*   Created: 2023/07/08 13:45:49 by sokur             #+#    #+#             */
+/*   Updated: 2023/07/08 13:45:52 by sokur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	t_stack	*stack_a;
-	t_stack	*stack_b;
+	int		i;
+	int		j;
+	char	*str;
 
-	stack_a = NULL;
-	stack_b = NULL;
-	if (argc < 2)
-		return (0);
-	if (argc == 2)
+	i = 0;
+	j = 0;
+	str = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (str == NULL)
+		return (NULL);
+	while (s1[i] != '\0')
 	{
-		argv = ft_only(argv[1]);
-		if (!argv)
-			return (1);
-		ft_do_the_job(&stack_a, &stack_b, argv);
-		free_all(argv);
+		str[i] = s1[i];
+		i++;
 	}
-	else
+	while (s2[j] != '\0')
 	{
-		argv = &argv[1];
-		ft_do_the_job(&stack_a, &stack_b, argv);
+		str[i + j] = s2[j];
+		j++;
 	}
-	free_stack(&stack_a);
-	free_stack(&stack_b);
-	return (0);
+	str[i + j] = '\0';
+	return (str);
 }

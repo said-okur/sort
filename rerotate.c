@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate2.c                                          :+:      :+:    :+:   */
+/*   rerotate.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sokur <sokur@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 20:12:55 by sokur             #+#    #+#             */
-/*   Updated: 2023/09/11 12:48:25 by sokur            ###   ########.fr       */
+/*   Updated: 2023/09/16 18:28:26 by sokur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,21 +33,16 @@ static void	do_rrotate(t_stack **stack)
 	(*stack) = last;
 }
 
-void	do_rra(t_stack **stack_a)
+void	do_rra(t_stack **stack_a, int flag)
 {
 	do_rrotate(stack_a);
-	write(1, "rra\n", 4);
+	if (flag == 1)
+		write(1, "rra\n", 4);
 }
 
-void	do_rrb(t_stack **stack_b)
+void	do_rrb(t_stack **stack_b, int flag)
 {
 	do_rrotate(stack_b);
-	write(1, "rrb\n", 4);
-}
-
-void	do_rrr(t_stack **stack_a, t_stack **stack_b)
-{
-	do_rrotate(stack_a);
-	do_rrotate(stack_b);
-	write(1, "rrr\n", 4);
+	if (flag == 1)
+		write(1, "rrb\n", 4);
 }

@@ -1,37 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   quotes.c                                           :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sokur <sokur@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/30 14:36:27 by sokur             #+#    #+#             */
-/*   Updated: 2023/09/16 14:14:37 by sokur            ###   ########.fr       */
+/*   Created: 2023/09/03 11:48:28 by sokur             #+#    #+#             */
+/*   Updated: 2023/09/16 17:16:33 by sokur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-char	**free_all(char **result)
+char	*ft_strncpy(char *dst, char *src, size_t len)
 {
-	int	i;
+	size_t	counter;
+	char	*pointer_to_dest_start;
+	size_t	src_len;
 
-	i = 0;
-	while (result[i])
+	pointer_to_dest_start = dst;
+	src_len = ft_strlen(src);
+	counter = 0;
+	while (counter < len)
 	{
-		free(result[i]);
-		i++;
+		if (counter < src_len)
+		{
+			*dst = *src;
+			src++;
+		}
+		else
+			*dst = '\0';
+		dst++;
+		counter++;
 	}
-	free(result);
-	return (NULL);
-}
-
-char	**ft_only(char *str)
-{
-	char	**ptr;
-
-	ptr = ft_split(str, ' ');
-	if (!ptr)
-		return (NULL);
-	return (ptr);
+	return (pointer_to_dest_start);
 }
